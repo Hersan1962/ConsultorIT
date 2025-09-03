@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Líder en Transformación Digital Financiera | Hackathon Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            text-align: center;
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .sidebar {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+
+        .sidebar h2 {
+            color: #2c3e50;
+            border-left: 4px solid #ff6b35;
+            padding-left: 15px;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .achievements {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .achievements h2 {
+            color: white;
+            border-left: 4px solid #ff6b35;
+            padding-left: 15px;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        .achievement-item {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .achievement-item h3 {
+            color: #ff6b35;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .projects-section {
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .projects-section h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.2em;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transform: translateY(0);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .project-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            font-size: 1.1em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .tech-tag {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-section {
+            background: #2c3e50;
+            color: white;
+            padding: 50px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .contact-section h2 {
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Transformación Digital Financiera</h1>
+            <p>40+ años liderando transformación digital en sector financiero | Especialista en IA, y Microsoft Power Platform</p>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <span class="stat-number">40+</span>
+                    <div class="stat-label">Años en TI</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">25+</span>
+                    <div class="stat-label">Proyectos</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">50+</span>
+                    <div class="stat-label">Profesionales liderados</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">45%</span>
+                    <div class="stat-label">Mejora eficiencia</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <h2>Acerca de</h2>
+                <p>Líder tecnológico con más de 40 años transformando el sector financiero a través de soluciones innovadoras. Especialista en sistemas bancarios core, IA, blockchain y Microsoft Power Platform. Reconocido por liderar equipos de alto rendimiento y generar impacto medible en transformación digital.</p>
+                
+                <h2 style="margin-top: 30px;">Tecnologías</h2>
+                <div class="tech-stack" style="justify-content: flex-start; margin-top: 15px;">
+                    <span class="tech-tag">IA & Machine Learning</span>
+                    <span class="tech-tag">Blockchain</span>
+                    <span class="tech-tag">Microsoft Power Platform</span>
+                    <span class="tech-tag">Sistemas Bancarios Core</span>
+                    <span class="tech-tag">SOA</span>
+                    <span class="tech-tag">GitHub</span>
+                    <span class="tech-tag">Netlify</span>
+                </div>
+            </aside>
+
+            <div class="achievements">
+                <h2>Logros de Alto Impacto</h2>
+                
+                <div class="achievement-item">
+                    <h3>Transformación Digital</h3>
+                    <p>45% mejora en eficiencia operativa en múltiples instituciones financieras</p>
+                </div>
+
+                <div class="achievement-item">
+                    <h3>Liderazgo Corporativo</h3>
+                    <p>Dirigí 13 empresas navieras optimizando procesos y reduciendo costos 30%</p>
+                </div>
+
+                <div class="achievement-item">
+                    <h3>Pionero Tecnológico</h3>
+                    <p>Primer adoptor de SOA, IA y blockchain en sector financiero venezolano</p>
+                </div>
+
+                <div class="achievement-item">
+                    <h3>Experiencia Internacional</h3>
+                    <p>25+ proyectos en Venezuela, Puerto Rico y el Caribe</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="projects-section">
+            <h2>Proyectos para el <span class="highlight">Hackathon</span></h2>
+            
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>📊 Sistema de Gestión de Indicadores</h3>
+                    <p>Plataforma inteligente para el monitoreo y análisis de KPIs financieros en tiempo real, con dashboards interactivos y alertas automatizadas.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Power BI</span>
+                        <span class="tech-tag">AI Analytics</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">API REST</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>📈 Análisis de Estados Financieros</h3>
+                    <p>Herramienta avanzada de análisis financiero con IA para detectar patrones, tendencias y generar insights predictivos automáticamente.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Blockchain</span>
+                        <span class="tech-tag">Power Platform</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white;">
+                <h3 style="margin-bottom: 15px;">🎯 Objetivo del Hackathon</h3>
+                <p style="font-size: 1.2em;">Desarrollar soluciones innovadoras que revolucionen la gestión financiera mediante la integración de IA, análisis predictivo y visualización de datos en tiempo real.</p>
+            </div>
+        </section>
+
+        <footer class="contact-section">
+            <h2>Conectemos</h2>
+            <p>Listo para colaborar en proyectos de transformación digital financiera</p>
+            
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3>🚀 GitHub</h3>
+                    <p>Repositorios y proyectos open source</p>
+                </div>
+                <div class="contact-card">
+                    <h3>🌐 Netlify</h3>
+                    <p>Demos y aplicaciones desplegadas</p>
+                </div>
+                <div class="contact-card">
+                    <h3>💼 LinkedIn</h3>
+                    <p>Red profesional y experiencia</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Animaciones suaves al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Aplicar animaciones a las tarjetas
+        document.querySelectorAll('.project-card, .achievement-item, .stat-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Efecto de typing en el título
+        const title = document.querySelector('.header h1');
+        const originalText = title.textContent;
+        title.textContent = '';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < originalText.length) {
+                title.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        };
+        
+        setTimeout(typeWriter, 1000);
+    </script>
+</body>
+</html>
